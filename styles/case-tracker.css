@@ -1,0 +1,18 @@
+body{
+    background-image: url('../images/grey_wash_wall.png');
+    background-color: gray;
+}
+
+.container {
+    background-color: #888888;
+}
+#title > h1 {
+    border-bottom: 1px solid black;
+}
+#quotes-table > thead {
+    border-bottom: 2px inset #00232c;
+}
+.myglyph-tools {
+    height: 22px;
+    width: auto;
+}
