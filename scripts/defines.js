@@ -2,10 +2,10 @@
  * Created by emilypatonay on 5/5/15.
  */
 var app = {
-    m: {},
-    v: {},
-    c: {},
-    r: {},
+    m: {type: 'model'},
+    v: {type: 'view'},
+    c: {type: 'collection'},
+    r: {type: 'router'},
     formatter: {}
 };
 

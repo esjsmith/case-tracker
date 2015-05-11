@@ -29,8 +29,15 @@
                 <td><span class="glyphicon glyphicon-plus"></span></td>
             </tr>
         </thead>
-        <tbody id="output-here">
-
+        <tbody id="all-cases-tbl">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
         </tbody>
     </table>
 
@@ -39,12 +46,16 @@
 
 <script type="text/x-handlebars-template" id="one-case-tpl">
     <tr class="data-row"  id="{{idPk}}">
-        <td class="acc-num">{{accNum}}</td>
-        <td class="format-acc-date">{{formatAccDate}}</td>
-        <td class="list-ihc">{{listIhc}}</td>
-        <td class="list-histochem">{{listHisto}}</td>
-        <td class="list-ancil">{{listAncil}}</td>
-        <td class="button-cell"><button class="btn btn-default" class="edit-btn"><img src="images/icons/tools-2_64px.png" class="myglyph-tools" alt="Edit"></button></td>
+        <td class="acc-num"> {{accNum}}</td>
+        <td class="format-acc-date"> {{formatAccDate}}</td>
+        <td class="list-ihc"> {{listIhc}}</td>
+        <td class="list-histochem"> {{listHisto}}</td>
+        <td class="list-ancil"> {{listAncil}}</td>
+        <td class="button-cell">
+            <button class="btn btn-default" class="edit-btn">
+                <img src="images/icons/tools-2_64px.png" class="myglyph-tools" alt="Edit">
+            </button>
+        </td>
     </tr>
 </script>
 
@@ -57,7 +68,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.1/backbone.marionette.js"></script>
 <script src="scripts/testdata.js"></script>
 
-<script src="scripts/define.js"></script>
+<script src="scripts/defines.js"></script>
 <script src="scripts/tools.js"></script>
 <script src="scripts/models.js"></script>
 <script src="scripts/collections.js"></script>

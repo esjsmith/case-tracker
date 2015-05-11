@@ -4,11 +4,13 @@
 
 (function($){
 
-    var allCases = new app.v.AllCasesTable();
+    // app.js
+    'use strict';
 
-    $(document).ready(function(){
-        console.log(allCases);
-        allCases.render();
-    })
+    // kick things off by creating the `App`, which is AllCasesTable,
+    // ie, the view that renders the entire table, calling with each
+    // iteration of the collection, a new row to be created
+
+    new app.v.AllCasesTable();
 
 })(jQuery);

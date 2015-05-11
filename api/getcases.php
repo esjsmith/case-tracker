@@ -10,8 +10,11 @@ error_reporting(E_ALL & ~E_NOTICE);
 ini_set("display_errors", 1);
 
 header('Content-Type: application/json');  // Needed so that the receiving file knows it JSON
+
 // Include dependencies
-require_once __DIR__ . '/Dbfind.php';
+$docRoot = $_SERVER['DOCUMENT_ROOT'];
+
+require_once $docRoot . '/api/Dbfind.php';
 require_once __DIR__ . '/TrackerData.php';
 $trkdata = new TrackerData();
 
