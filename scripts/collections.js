@@ -9,7 +9,10 @@
     // new collection into app.c.AllCaseRows
     var AllCasesVar = Backbone.Collection.extend({
         url: 'api/getcases.php',
-        model: app.m.AllCasesTable
+        model: app.m.AllCasesTable,
+		parse: function(){
+			
+			}
     });
     //endregion
 
