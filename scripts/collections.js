@@ -10,9 +10,7 @@
     var AllCasesVar = Backbone.Collection.extend({
         url: 'api/getcases.php',
         model: app.m.AllCasesTable,
-		parse: function(){
-			
-			}
+
     });
     //endregion
 

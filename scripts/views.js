@@ -4,10 +4,16 @@
 
 
 (function($){
+    app.v.addStudies = Backbone.View.extend({
+
+    });
+
+
     app.v.OneCaseRow = Backbone.View.extend({
         model: new app.m.OneCaseRow(),
         tagName: 'tr',
-        initialize: function(){
+        initialize: function(response){
+            console.log(response);
             console.log('init app.v.OneCaseRow');
             this.template = Handlebars.compile($('#one-case-tpl').html())
         },

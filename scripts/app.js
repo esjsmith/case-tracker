@@ -7,7 +7,6 @@
     // app.js
     'use strict';
 
-	app = new Mn.Application();
 
 
     // kick things off by creating the `App`, which is AllCasesTable,

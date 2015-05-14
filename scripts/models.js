@@ -16,7 +16,17 @@
             histochem: {},
             ancil: {}
         },
-        idAttribute: 'idPk'
+        idAttribute: 'idPk',
+        parse: function(response){
+
+        }
+
+    });
+
+    app.m.AddStudies = Backbone.Model.extend({
+        // This is the model that will contain the additional studies
+        // TODO: format the additional studies
+        // TODO: figure out a RESTful way of presenting the data to the user
     });
 
     app.m.AllCasesTable = Backbone.Model.extend({});
