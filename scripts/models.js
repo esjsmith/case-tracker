@@ -27,6 +27,11 @@
         // This is the model that will contain the additional studies
         // TODO: format the additional studies
         // TODO: figure out a RESTful way of presenting the data to the user
+        initialize: function(){
+            // To start off the development of this one, i'll just log out
+            // the response.ihc subarray
+            console.log(this.ihc);
+        }
     });
 
     app.m.AllCasesTable = Backbone.Model.extend({});
