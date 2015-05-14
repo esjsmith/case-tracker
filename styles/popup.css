@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.popup {
+	width: 250px;
+	font: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	}
+
+.popup tr:nth-child(2n){
+	background-color: lightgray;
+	}
+
+.popup tr td {
+	list-style-type: none;
+    margin-right: 5px;
+    padding: 0;
+
+	}
+	
+.popup tr td input {
+	margin: 0 2px 0 2px;
+	}
