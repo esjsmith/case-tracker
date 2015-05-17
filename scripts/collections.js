@@ -5,7 +5,10 @@
 (function($){
     'use strict';
 
-    app.c.AllAddStudies = Backbone.Collection.extend({});
+    app.c.AllAddStudies = Backbone.Collection.extend({
+        model: app.m.AllAddStudies
+
+    });
 
 
     //region The extra parenthesis allows for instantiation and passing the

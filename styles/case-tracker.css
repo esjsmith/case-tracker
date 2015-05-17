@@ -16,3 +16,7 @@ body{
     height: 22px;
     width: auto;
 }
+.strikethrough {
+    text-decoration: line-through;
+    color: #a9a9a9;
+}

@@ -4,8 +4,42 @@
 
 
 (function($){
-    app.v.addStudies = Backbone.View.extend({
+    app.v.oneAncilStudy = Backbone.View.extend({
+        /* This will take one study and decide if it is complete.
+         If complete, it will add a span with a class of 'ancil-done`.
+         If incomplete it will merely return the study.
+         */
+    });
 
+    app.v.AllAncilStudies = Backbone.View.extend({
+        // This will take all the ancillary studies and make them an
+        // HTML string with tag of <span> and class of `ancil-studies`
+        outputArr: [],
+        tagName: 'span',
+        className: 'ancil-studies',
+        makeOutput: function(aCase){
+            var that = this;
+            // TODO: this is where that <span> needs to be added
+            that.outputArr.push(app.formatter.addStriketrhough(aCase));
+        },
+        initialize: function(response){
+            console.log('***');
+            this.outputArr = [];
+            var that = this;
+            if (response.data === null){
+                that.outputArr.push('No studies');
+            } else {
+                _.each(response.data, function(item){
+                    that.makeOutput(item);
+                });
+
+            }
+            that.render(that.outputArr);
+
+        },
+        render: function(){
+            return this.outputArr.join(' * ');
+        }
     });
 
 
@@ -27,12 +61,22 @@
 
                 formattedAccDate: (app.formatter.date(data.accDate)).formatDate,
                 id: response.data.idPk,
-                accNum: app.formatter.accNum(data.wheelNum, data.accDate, data.accNum)
+                accNum: app.formatter.accNum(data.wheelNum, data.accDate, data.accNum),
+                listIhc: function(){
+                    var x = new app.v.AllAncilStudies({data: data.ihc});
+                    return x.render();
+                },
+                listHisto: function(){
+                    return 'temp filler';
+                },
+                listMolec: function(){
+                    return 'temp filler';
+                }
+
             };
             this.template = Handlebars.compile($('#one-case-tpl').html())
         },
         render: function(){
-            console.log(this.output);
             this.id = this.model.attributes.idPk;
             this.$el.html(this.template(this.output));
             return this;
