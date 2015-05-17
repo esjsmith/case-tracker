@@ -4,12 +4,7 @@
 
 
 (function($){
-    app.v.oneAncilStudy = Backbone.View.extend({
-        /* This will take one study and decide if it is complete.
-         If complete, it will add a span with a class of 'ancil-done`.
-         If incomplete it will merely return the study.
-         */
-    });
+
 
     app.v.AllAncilStudies = Backbone.View.extend({
         // This will take all the ancillary studies and make them an
@@ -19,7 +14,7 @@
         className: 'ancil-studies',
         makeOutput: function(aCase){
             var that = this;
-            // TODO: this is where that <span> needs to be added
+
             that.outputArr.push(app.formatter.addStriketrhough(aCase));
         },
         initialize: function(response){
