@@ -10,10 +10,11 @@
 
 
     app.v.OneCaseRow = Backbone.View.extend({
+
         model: new app.m.OneCaseRow(),
         tagName: 'tr',
+        className: 'a-case-row',
         initialize: function(response){
-            console.log(response);
             console.log('init app.v.OneCaseRow');
             this.template = Handlebars.compile($('#one-case-tpl').html())
         },
@@ -41,7 +42,9 @@
             app.c.AllCaseRows.fetch({reset: true});
         },
         addOne: function(aCase){
-            var aCaseView = new app.v.OneCaseRow({model: aCase});
+            console.log(aCase.toJSON().accDate);
+            var dataIn = aCase.toJSON();
+            var aCaseView = new app.v.OneCaseRow({model: aCase, data: dataIn});
             this.$table.append(aCaseView.render().el);
         },
 
