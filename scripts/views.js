@@ -15,16 +15,23 @@
         initialize: function(response){
             var data = response.data;
             this.output = {
-                formattedAccDate: (app.formatter.date(response.data.accDate)).formatDate,
+                // Each of the keys in this object are present in the Handlebars
+                // template in index.html.
+
+                /* app.formatter.date returns and object as follows:
+                {sqlDate: 2015-05-17, formatDate: 5/7/2015}
+                This is why the data.accDate property is passed in (it's
+                in SQL format), then the .formatDate property is the one
+                that is passed into this.output.formattedAccDate
+                */
+
+                formattedAccDate: (app.formatter.date(data.accDate)).formatDate,
                 id: response.data.idPk,
                 accNum: app.formatter.accNum(data.wheelNum, data.accDate, data.accNum)
             };
-            console.log('init app.v.OneCaseRow');
             this.template = Handlebars.compile($('#one-case-tpl').html())
         },
         render: function(){
-            // TODO: Add jQuery .find() method to make the tr have an id of data.pkId
-
             console.log(this.output);
             this.id = this.model.attributes.idPk;
             this.$el.html(this.template(this.output));

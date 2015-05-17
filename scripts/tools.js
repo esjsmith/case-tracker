@@ -17,7 +17,6 @@ var app = app || {};
         accNum: function(wheelNum, accDate, accOrder){
             // This tool makes the different data parts into SB15-1234
             var lastTwoYear = accDate.substr(2, 2);
-            console.log(lastTwoYear);
             return wheelNum + lastTwoYear + '-' + accOrder;
         }
     };
