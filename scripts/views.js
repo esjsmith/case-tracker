@@ -10,15 +10,15 @@
 
 
     app.v.OneCaseRow = Backbone.View.extend({
-
-        model: new app.m.OneCaseRow(),
         tagName: 'tr',
         className: 'a-case-row',
         initialize: function(response){
             console.log('init app.v.OneCaseRow');
+            console.log(this);
             this.template = Handlebars.compile($('#one-case-tpl').html())
         },
         render: function(){
+            this.id = this.model.attributes.idPk;
             this.$el.html(this.template(this.model.attributes));
             return this;
         }
