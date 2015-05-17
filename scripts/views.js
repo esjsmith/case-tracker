@@ -13,9 +13,7 @@
         tagName: 'span',
         className: 'ancil-studies',
         makeOutput: function(aCase){
-            var that = this;
-
-            that.outputArr.push(app.formatter.addStriketrhough(aCase));
+            this.outputArr.push(app.formatter.addStriketrhough(aCase));
         },
         initialize: function(response){
             this.outputArr = [];

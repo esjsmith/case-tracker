@@ -27,13 +27,14 @@ var app = app || {};
                 with a class of `strikethrough` will be added, and that whole thing returned.
                 Eg, <span class='strkethrough'>CD5</span>
                  */
-                return '<span class="strikethrough">' + dataIn.stainCode + '</span>'
+                return '<span class="strikethrough">' + dataIn.stainCode + ' ('
+                        + dataIn.block + ')' + '</span>'
             } else {
                 /*
                 Else, the stain hasn't been marked as interpreted by the pathologist, so
                 it should be left unchanged, as per the container element's formatting.
                  */
-                return dataIn.stainCode;
+                return dataIn.stainCode + ' (' + dataIn.block + ')';
             }
         }
     };

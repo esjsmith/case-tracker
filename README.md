@@ -18,7 +18,7 @@ renders. The engine provides a way to escape this: instead of putting two curly 
 (eg, `{{escapedVariable}}`), triple curly braces forces HTML rendering and no escaping (eg,
 `{{{literalVariable}}}`). No doubt, the Handlebars documentation will be helpful.
 
-The view calls `app.formatter.strikethrough` method (see **TOOLS** section below) in
+The view calls `app.formatter.strikethrough` method (see **Tools** section below) in
 order to render stains with `class='strikethrough'` or plain HTML text.
 
 # Tools
@@ -26,10 +26,12 @@ order to render stains with `class='strikethrough'` or plain HTML text.
 If the `interpDate !== null`, then this will assume that it has already been marked 
 as interpreted by the pathologist. In that case, a `<span>` with a class of 
 `strikethrough` will be added, and that whole thing returned. Eg, 
-`<span class='strikethrough'>CD5</span>`. If there is no `interpDate` returned
+`<span class='strikethrough'>CD5 + (1.3)</span>`. If there is no `interpDate` returned
 from the API (ie, `interpDate === null`), then the app assumes that the
 pathologist has not yet marked it as interpreted, and `app.formatter.strikethrough`
-will return just the plain string.
+will return just the plain string. This also places the block number in parenthesis
+at the end of the output string so that it will be struck through just like the corresponding
+stain.
 
 # Data Binding
 The api that is being built (still a lot of growing pains ahead) will understand
