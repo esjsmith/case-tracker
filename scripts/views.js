@@ -13,13 +13,21 @@
         tagName: 'tr',
         className: 'a-case-row',
         initialize: function(response){
+            var data = response.data;
+            this.output = {
+                formattedAccDate: (app.formatter.date(response.data.accDate)).formatDate,
+                id: response.data.idPk,
+                accNum: app.formatter.accNum(data.wheelNum, data.accDate, data.accNum)
+            };
             console.log('init app.v.OneCaseRow');
-            console.log(this);
             this.template = Handlebars.compile($('#one-case-tpl').html())
         },
         render: function(){
+            // TODO: Add jQuery .find() method to make the tr have an id of data.pkId
+
+            console.log(this.output);
             this.id = this.model.attributes.idPk;
-            this.$el.html(this.template(this.model.attributes));
+            this.$el.html(this.template(this.output));
             return this;
         }
     });
@@ -42,14 +50,11 @@
             app.c.AllCaseRows.fetch({reset: true});
         },
         addOne: function(aCase){
-            console.log(aCase.toJSON().accDate);
-            var dataIn = aCase.toJSON();
-            var aCaseView = new app.v.OneCaseRow({model: aCase, data: dataIn});
+            var aCaseView = new app.v.OneCaseRow({model: aCase, data: aCase.toJSON()});
             this.$table.append(aCaseView.render().el);
         },
 
         addAll: function () {
-            console.log('addAll is called');
             this.$table.empty();
             app.c.AllCaseRows.each(this.addOne, this);
         }
