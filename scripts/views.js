@@ -18,7 +18,6 @@
             that.outputArr.push(app.formatter.addStriketrhough(aCase));
         },
         initialize: function(response){
-            console.log('***');
             this.outputArr = [];
             var that = this;
             if (response.data === null){
@@ -33,7 +32,7 @@
 
         },
         render: function(){
-            return this.outputArr.join(' * ');
+            return this.outputArr.join(' • ');
         }
     });
 
@@ -62,10 +61,12 @@
                     return x.render();
                 },
                 listHisto: function(){
-                    return 'temp filler';
+                    var x = new app.v.AllAncilStudies({data: data.histochem});
+                    return x.render();
                 },
                 listMolec: function(){
-                    return 'temp filler';
+                    var x = new app.v.AllAncilStudies({data: data.ancillary});
+                    return x.render();
                 }
 
             };
